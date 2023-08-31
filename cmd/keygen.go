@@ -178,6 +178,8 @@ func addToBnbcli(pubKey crypto.PubKey) {
 	pubKeyBytes := pubKey.(secp256k1.PubKeySecp256k1)
 	pubKeyHex := hex.EncodeToString(pubKeyBytes[:])
 
+	client.Logger.Info("pubKeyHex: ", pubKeyHex)
+
 	interactive := bytes.NewBuffer(make([]byte, 0))
 	go func() {
 		for {

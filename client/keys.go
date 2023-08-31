@@ -86,7 +86,7 @@ func LoadPubkey(home, vault string) (crypto.PubKey, error) {
 	}
 	btcecPubKey := (*btcec.PublicKey)(ecdsaPubKey)
 
-	var pubkeyBytes secp256k1.PubKeySecp256k1
+	pubkeyBytes := make(secp256k1.PubKeySecp256k1, secp256k1.PubKeySize)
 	copy(pubkeyBytes[:], btcecPubKey.SerializeCompressed())
 	return pubkeyBytes, nil
 }
